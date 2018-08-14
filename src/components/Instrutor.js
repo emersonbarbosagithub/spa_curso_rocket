@@ -43,6 +43,7 @@ class Instrutor extends Component {
                 this.setState({cursos: data.cursos});
         })
         this.pegaDados()
+        
     }
 
     pegaDadosCursoId(id) {
