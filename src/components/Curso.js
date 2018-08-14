@@ -34,7 +34,7 @@ class Curso extends Component {
             {this.setState({cadastrarSucesso: [0] })}
         }
         
-        return fetch('http://localhost:3001/cursos/',{
+        return fetch('https://nameless-reaches-68184.herokuapp.com//cursos/',{
             method: "POST",
             body: JSON.stringify({title: title}),
             headers: {
@@ -46,13 +46,13 @@ class Curso extends Component {
 
     pegaDados(id) {
             if (id === undefined) {
-                return fetch('http://localhost:3001/cursos/')
+                return fetch('https://nameless-reaches-68184.herokuapp.com//cursos/')
                     .then(response => { return response.json(); })
                     .then(data =>{
                         this.setState({select_cursos: data.cursos});
                     })
            }else{
-                return fetch('http://localhost:3001/cursos/' + id)
+                return fetch('https://nameless-reaches-68184.herokuapp.com//cursos/' + id)
                     .then(response => { return response.json(); })
                     .then(data =>{
                         this.setState({cursos: [data.curso]});
