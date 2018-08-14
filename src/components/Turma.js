@@ -67,7 +67,7 @@ class Turma extends Component {
     }
 
     pegaDadosCursoId(id) {
-        return fetch('https://nameless-reaches-68184.herokuapp.com:process.env.PORT/cursos/' + id)
+        return fetch('https://nameless-reaches-68184.herokuapp.com:3001/cursos/' + id)
                     .then(response => { return response.json(); })
                     .then(data =>{
                         this.setState({curso_cadastro: [data.curso]});
@@ -76,7 +76,7 @@ class Turma extends Component {
     }
 
     componentDidMount() {
-        fetch('https://nameless-reaches-68184.herokuapp.com:process.env.PORT/cursos/')
+        fetch('https://nameless-reaches-68184.herokuapp.com:3001/cursos/')
             .then(response => { return response.json(); })
             .then(data =>{
                 this.setState({cursos: data.cursos});
@@ -87,7 +87,7 @@ class Turma extends Component {
     
     pegaDadosAluno(id){
         this.setState({select_alunos: [] })
-        return fetch('https://nameless-reaches-68184.herokuapp.com:process.env.PORT/alunos/')
+        return fetch('https://nameless-reaches-68184.herokuapp.com:3001/alunos/')
                 .then(response => { return response.json(); })
                 .then(data =>{
                     //console.log(data.alunos[0].turmas[0]._id)
@@ -104,13 +104,13 @@ class Turma extends Component {
         this.pegaDadosAluno(id)
         
         if (id === undefined) {
-            return fetch('https://nameless-reaches-68184.herokuapp.com:process.env.PORT/turmas/')
+            return fetch('https://nameless-reaches-68184.herokuapp.com:3001/turmas/')
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({select_turmas: data.turmas});
                 })
        }else{
-            return fetch('https://nameless-reaches-68184.herokuapp.com:process.env.PORT/turmas/' + id)
+            return fetch('https://nameless-reaches-68184.herokuapp.com:3001/turmas/' + id)
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({turmas: [data.turma]});
