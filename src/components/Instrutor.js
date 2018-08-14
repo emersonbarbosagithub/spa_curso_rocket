@@ -37,7 +37,7 @@ class Instrutor extends Component {
     }
 
     componentDidMount() {
-        fetch('https://nameless-reaches-68184.herokuapp.com/cursos/')
+        fetch('https://nameless-reaches-68184.herokuapp.com:3001/cursos/')
             .then(response => { return response.json(); })
             .then(data =>{
                 this.setState({cursos: data.cursos});
@@ -47,7 +47,7 @@ class Instrutor extends Component {
     }
 
     pegaDadosCursoId(id) {
-        return fetch('https://nameless-reaches-68184.herokuapp.com/cursos/' + id)
+        return fetch('https://nameless-reaches-68184.herokuapp.com:3001/cursos/' + id)
                     .then(response => { return response.json(); })
                     .then(data =>{
                         this.setState({curso_cadastro: [data.curso]});
@@ -65,7 +65,7 @@ class Instrutor extends Component {
         const curso_selecionado = this.pegaDadosCursoId(curso)
         curso_selecionado.then(
             response => {
-                return fetch('https://nameless-reaches-68184.herokuapp.com/instrutores/',{
+                return fetch('https://nameless-reaches-68184.herokuapp.com:3001/instrutores/',{
                     method: "POST",
                     body: JSON.stringify({
                         name: name, 
@@ -83,13 +83,13 @@ class Instrutor extends Component {
 
     pegaDados(id) {
         if (id === undefined) {
-            return fetch('https://nameless-reaches-68184.herokuapp.com/instrutores/')
+            return fetch('https://nameless-reaches-68184.herokuapp.com:3001/instrutores/')
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({select_instrutores: data.instrutores});
                 })
        }else{
-            return fetch('https://nameless-reaches-68184.herokuapp.com/instrutores/' + id)
+            return fetch('https://nameless-reaches-68184.herokuapp.com:3001/instrutores/' + id)
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({instrutores: [data.instrutor]});
