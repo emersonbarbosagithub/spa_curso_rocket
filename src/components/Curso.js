@@ -33,15 +33,20 @@ class Curso extends Component {
             {this.setState({cadastrar: [] })}
             {this.setState({cadastrarSucesso: [0] })}
         }
+
+        try{    
+            return fetch('https://nameless-reaches-68184.herokuapp.com:3001/cursos/',{
+                method: "POST",
+                body: JSON.stringify({title: title}),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+        } catch (err) {
+            return 'Erro ao listar.'
+        }
         
-        return fetch('https://nameless-reaches-68184.herokuapp.com:3001/cursos/',{
-            method: "POST",
-            body: JSON.stringify({title: title}),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
     }
 
     pegaDados(id) {
