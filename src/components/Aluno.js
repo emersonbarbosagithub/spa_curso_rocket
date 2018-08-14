@@ -37,7 +37,7 @@ class aluno extends Component {
     }
 
     componentDidMount() {
-        fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/turmas/')
+        fetch('http://localhost:3001/turmas/')
             .then(response => { return response.json(); })
             .then(data =>{
                 this.setState({turmas: data.turmas});
@@ -46,7 +46,7 @@ class aluno extends Component {
     }
 
     pegaDadosturmaId(id) {
-        return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/turmas/' + id)
+        return fetch('http://localhost:3001/turmas/' + id)
                     .then(response => { return response.json(); })
                     .then(data =>{
                         this.setState({turma_cadastro: [data.turma]});
@@ -65,7 +65,7 @@ class aluno extends Component {
 
         turma_selecionado.then(
             response => {
-                return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/alunos/',{
+                return fetch('http://localhost:3001/alunos/',{
                     method: "POST",
                     body: JSON.stringify({
                         name: name, 
@@ -83,13 +83,13 @@ class aluno extends Component {
 
     pegaDados(id) {
         if (id === undefined) {
-            return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/alunos/')
+            return fetch('http://localhost:3001/alunos/')
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({select_alunos: data.alunos});
                 })
        }else{
-            return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/alunos/' + id)
+            return fetch('http://localhost:3001/alunos/' + id)
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({alunos: [data.aluno]});

@@ -37,7 +37,7 @@ class Instrutor extends Component {
     }
 
     componentDidMount() {
-        fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/cursos/')
+        fetch('http://localhost:3001/cursos/')
             .then(response => { return response.json(); })
             .then(data =>{
                 this.setState({cursos: data.cursos});
@@ -46,7 +46,7 @@ class Instrutor extends Component {
     }
 
     pegaDadosCursoId(id) {
-        return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/cursos/' + id)
+        return fetch('http://localhost:3001/cursos/' + id)
                     .then(response => { return response.json(); })
                     .then(data =>{
                         this.setState({curso_cadastro: [data.curso]});
@@ -64,7 +64,7 @@ class Instrutor extends Component {
         const curso_selecionado = this.pegaDadosCursoId(curso)
         curso_selecionado.then(
             response => {
-                return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/instrutores/',{
+                return fetch('http://localhost:3001/instrutores/',{
                     method: "POST",
                     body: JSON.stringify({
                         name: name, 
@@ -82,13 +82,13 @@ class Instrutor extends Component {
 
     pegaDados(id) {
         if (id === undefined) {
-            return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/instrutores/')
+            return fetch('http://localhost:3001/instrutores/')
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({select_instrutores: data.instrutores});
                 })
        }else{
-            return fetch('mongodb://rocketdb:a123456@ds121652.mlab.com:21652/rocketdb/instrutores/' + id)
+            return fetch('http://localhost:3001/instrutores/' + id)
                 .then(response => { return response.json(); })
                 .then(data =>{
                     this.setState({instrutores: [data.instrutor]});
