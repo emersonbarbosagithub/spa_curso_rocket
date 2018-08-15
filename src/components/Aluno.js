@@ -115,7 +115,7 @@ class aluno extends Component {
                     {aluno.email}
                     <br />
                     <strong>Turma em que o aluno '{aluno.name}' estuda: </strong>
-                    {aluno.turmas[0].title}
+                    {aluno.turmas[0]}
                 </div>
             )
         })
