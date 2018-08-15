@@ -114,7 +114,7 @@ class Instrutor extends Component {
                     {instrutor.email}
                     <br />
                     <strong>Curso em que o instrutor {instrutor.name} ministra: </strong>
-                    {instrutor.cursos[0].title}
+                    {instrutor.cursos[0]}
                 </div>
             )
         })
