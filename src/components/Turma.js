@@ -95,6 +95,7 @@ class Turma extends Component {
                         for (let i=0; i < data.alunos.length; i++) {
                             if (data.alunos[i].turmas[0]._id === id){
                                 this.setState({select_alunos: [data.alunos[i]]});
+                                return select_alunos
                             }
                         }
             })
@@ -103,6 +104,7 @@ class Turma extends Component {
 
     pegaDados(id) {
         
+        this.pegaDadosAluno(id)
         
         if (id === undefined) {
             return fetch('https://nameless-reaches-68184.herokuapp.com/turmas/')
@@ -230,7 +232,7 @@ class Turma extends Component {
                                 {turmas}
                                 {select_alunos}
                                 <div className='panel-footer text-center'>
-                                <button className='btn btn-lg' onClick={() => this.pegaDadosAluno(this.state.turma_selecionado)}>Pesquisar</button>
+                                <button className='btn btn-lg' onClick={() => this.pegaDados(this.state.turma_selecionado)}>Pesquisar</button>
                                 </div>
                             </div>      
                         </div>   
