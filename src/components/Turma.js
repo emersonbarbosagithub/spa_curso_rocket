@@ -131,7 +131,7 @@ class Turma extends Component {
                     {turma.description}
                     <br />
                     <strong>Curso em que a turma '{turma.title}' está inscrita: </strong>
-                    {turma.cursos[0].title}
+                    {turma.cursos[0]}
                     <br />
                     <strong>Alunos dessa turma: </strong>
                     <br />
@@ -151,7 +151,7 @@ class Turma extends Component {
             
             return(<div>
                     <div className='panel-footer' key={aluno._id}>
-                        {aluno.name}
+                        {aluno}
                     </div>
                     <div className='panel-footer' key={aluno._id}>
                     {}
