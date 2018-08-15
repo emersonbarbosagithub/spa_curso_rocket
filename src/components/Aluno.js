@@ -6,6 +6,7 @@ class aluno extends Component {
         this.state = {
             alunos: [],
             select_alunos: [],
+            select_turma: [],
             turmas: [],
             turma_cadastro: [],
             cadastrar: [0],
@@ -106,6 +107,11 @@ class aluno extends Component {
         })
 
         const alunos = this.state.alunos.map((aluno) => {
+            for (let i=0; i < data.alunos.length; i++) {
+                if (data.alunos[i].turmas[0] === this.turmas[i]._id){
+                    this.setState({select_turma: [this.turmas[i]]});
+                }
+            }
             return(
                 <div className='panel-footer' key={aluno._id}>
                     <strong>Nome do Aluno: </strong>
@@ -115,7 +121,7 @@ class aluno extends Component {
                     {aluno.email}
                     <br />
                     <strong>Turma em que o aluno '{aluno.name}' estuda: </strong>
-                    {aluno.turmas[0]}
+                    {select_turma}
                 </div>
             )
         })
