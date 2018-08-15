@@ -86,7 +86,6 @@ class Turma extends Component {
     }
     
     pegaDadosAluno(id){
-        this.setState({select_alunos: [] })
         return fetch('https://nameless-reaches-68184.herokuapp.com/alunos/')
                 .then(response => { return response.json(); })
                 .then(data =>{
