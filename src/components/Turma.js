@@ -86,16 +86,19 @@ class Turma extends Component {
     }
     
     pegaDadosAluno(id){
-        return fetch('https://nameless-reaches-68184.herokuapp.com/alunos/')
-                .then(response => { return response.json(); })
-                .then(data =>{
-                    //console.log(data.alunos[0].turmas[0]._id)
-                    for (let i=0; i < data.alunos.length; i++) {
-                        if (data.alunos[i].turmas[0]._id === id){
-                            this.setState({select_alunos: [data.alunos[i]]});
+        this.setState({select_alunos: [] })
+        if (id !== undefined) {
+            return fetch('https://nameless-reaches-68184.herokuapp.com/alunos/')
+                    .then(response => { return response.json(); })
+                    .then(data =>{
+                        //console.log(data.alunos[0].turmas[0]._id)
+                        for (let i=0; i < data.alunos.length; i++) {
+                            if (data.alunos[i].turmas[0]._id === id){
+                                this.setState({select_alunos: [data.alunos[i]]});
+                            }
                         }
-                    }
-        })
+            })
+        }
     }
 
     pegaDados(id) {
@@ -133,7 +136,7 @@ class Turma extends Component {
                     <br />
                     <strong>Alunos dessa turma: </strong>
                     <br />
-                    {select_alunos}
+                    
                 </div>
             )
         })
@@ -226,7 +229,6 @@ class Turma extends Component {
                                     </select>
                                 </div>
                                 {turmas}
-                                <strong>Alunos cadastrados: </strong>
                                 {select_alunos}
                                 <div className='panel-footer text-center'>
                                 <button className='btn btn-lg' onClick={() => this.pegaDados(this.state.turma_selecionado)}>Pesquisar</button>
