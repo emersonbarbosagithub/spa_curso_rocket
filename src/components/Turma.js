@@ -91,13 +91,11 @@ class Turma extends Component {
             return fetch('https://nameless-reaches-68184.herokuapp.com/alunos/')
                     .then(response => { return response.json(); })
                     .then(data =>{
-                        //console.log(data.alunos[0].turmas[0]._id)
                         for (let i=0; i < data.alunos.length; i++) {
                             if (data.alunos[i].turmas[0]._id === id){
                                 this.setState({select_alunos: [data.alunos[i]]});
                             }
                         }
-                        return this.select_alunos
             })
         }
     }
@@ -150,7 +148,6 @@ class Turma extends Component {
 
         //Essa constante abaixo precisa ser refeita
         const select_alunos = this.state.select_alunos.map((aluno) =>{
-            console.log(aluno)
             
             return(<div>
                     <div className='panel-footer' key={aluno._id}>
