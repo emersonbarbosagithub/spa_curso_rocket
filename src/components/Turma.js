@@ -226,7 +226,8 @@ class Turma extends Component {
                                     </select>
                                 </div>
                                 {turmas}
-                                
+                                <strong>Alunos cadastrados: </strong>
+                                {select_alunos}
                                 <div className='panel-footer text-center'>
                                 <button className='btn btn-lg' onClick={() => this.pegaDados(this.state.turma_selecionado)}>Pesquisar</button>
                                 </div>
