@@ -95,9 +95,10 @@ class Turma extends Component {
                         for (let i=0; i < data.alunos.length; i++) {
                             if (data.alunos[i].turmas[0]._id === id){
                                 this.setState({select_alunos: [data.alunos[i]]});
-                                return select_alunos
+                                
                             }
                         }
+                        return this.select_alunos
             })
         }
     }
