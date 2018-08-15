@@ -107,8 +107,8 @@ class aluno extends Component {
         })
 
         const alunos = this.state.alunos.map((aluno) => {
-            for (let i=0; i < data.alunos.length; i++) {
-                if (data.alunos[i].turmas[0] === this.turmas[i]._id){
+            for (let i=0; i < alunos.length; i++) {
+                if (alunos[i].turmas[0] === this.turmas[i]._id){
                     this.setState({select_turma: [this.turmas[i]]});
                 }
             }
