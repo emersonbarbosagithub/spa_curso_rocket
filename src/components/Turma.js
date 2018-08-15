@@ -151,7 +151,7 @@ class Turma extends Component {
             
             return(<div>
                     <div className='panel-footer' key={aluno._id}>
-                        {aluno}
+                        {aluno.name}
                     </div>
                     <div className='panel-footer' key={aluno._id}>
                     {}
