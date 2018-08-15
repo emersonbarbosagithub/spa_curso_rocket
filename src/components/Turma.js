@@ -55,7 +55,7 @@ class Turma extends Component {
                     body: JSON.stringify({
                         title: title,
                         description: description, 
-                        cursos: [response.curso]
+                        cursos: [response]
                     }),
                     headers: {
                         'Accept': 'application/json',
