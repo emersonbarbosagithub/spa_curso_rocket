@@ -135,7 +135,6 @@ class Turma extends Component {
                     <strong>Alunos dessa turma: </strong>
                     <br />
                     
-                    {select_alunos}
                 </div>
             )
         })
@@ -155,7 +154,7 @@ class Turma extends Component {
                         {aluno.name}
                     </div>
                     <div className='panel-footer' key={aluno._id}>
-                    {aluno.name}
+                    {}
                 </div></div>
             )
         })
@@ -211,7 +210,6 @@ class Turma extends Component {
                                 <div className='panel-heading text-center'>
                                     <h1>Cadastrar Turma</h1>
                                 </div>
-                                
                                 {cadastro1}
                                 {cadastro2}
                             </div>      
@@ -229,6 +227,7 @@ class Turma extends Component {
                                     </select>
                                 </div>
                                 {turmas}
+                                {select_alunos}
                                 <div className='panel-footer text-center'>
                                 <button className='btn btn-lg' onClick={() => this.pegaDados(this.state.turma_selecionado)}>Pesquisar</button>
                                 </div>
